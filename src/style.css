@@ -1,0 +1,136 @@
+.turf-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.turf-card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: #111;
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 100px auto;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.4);
+  border: 2px solid whitesmoke; /* Optional: remove if you don’t want the blue outline */
+
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid whitesmoke;
+  border-radius: 5px;
+}
+.verifyButton:hover{
+  background-color: orangered;
+}
+
+.verifyButton3:hover{
+  background-color: rgb(34, 224, 34);
+}
+
+button:first-child {
+  background-color: orange;
+  color: black;
+}
+
+button:last-child {
+  background-color: #333;
+  color: white;
+}
+
+.main-content {
+  margin-top: 40px; 
+  padding-top: 40px;  /* previously 150px which included everything */
+  padding-left: 20px;
+  padding-right: 20px;
+   text-align: center; 
+  /* border: 2px dashed red; */
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.logo-white {
+  color: white;
+}
+
+.logo-orange {
+  background-color: orange;
+  color: black;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 2px;
+}
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-toggle {
+  color: white !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-toggle:hover {
+  color: orange !important;
+}
+
+.card-img-custom {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-text{
+  text-align: left;
+  color: white;
+}
+
+.container2 {
+ 
+  background-color: #1c1b1b;
+  color: white;
+  /* important to keep children inside rounded border */
+  
+}
+
+
+
+.container2 .col {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 2px;
+  border-right: 1px solid #444;
+}
+
+
+.col:hover{
+  cursor:  pointer;
+  color: aqua;
+}
+
+
+
+
