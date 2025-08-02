@@ -8,25 +8,19 @@ import TurfCards from "./TurfsCards"; // 👈 NEW IMPORT
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css';
+import RegisterPlayerForm from "./RegisterPlayerForm"
 
 function App() {
-  const [isVerified, setIsVerified] = useState(false);
+ const [isVerified, setIsVerified] = useState(() => {
+  return localStorage.getItem("isVerified") === "true";
+});
   const [searchQuery, setSearchQuery] = useState("Indian");
 
   return (
     <Router>
       <Routes>
 
-        <Route
-          path="/"
-          element={
-            isVerified ? (
-              <Navigate to="/main" />
-            ) : (
-              <AgeVerification onVerify={() => setIsVerified(true)} />
-            )
-          }
-        />
+        <Route path="/" element={<AgeVerification setIsVerified={setIsVerified} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/main"
@@ -56,6 +50,20 @@ function App() {
             )
           }
         />
+        <Route
+          path="/register-player"
+          element={
+            isVerified ? (
+              <>
+                <CustomNavbar />
+                <RegisterPlayerForm />
+              </>
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+
       </Routes>
     </Router>
   );
