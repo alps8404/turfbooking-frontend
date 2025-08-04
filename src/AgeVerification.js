@@ -21,7 +21,7 @@ const AgeVerification = ({ setIsVerified }) => {
 
       <div className="buttons">
         <button className="verifyButton" onClick={() => handleRedirect("/search-players")}>I want a - Team</button>
-        <button className="verifyButton" onClick={() => handleRedirect("/register-player")}>I want a - Player</button>
+        <button className="verifyButton" onClick={() => handleRedirect("/player-login")}>I want a - Player</button>
         <button className="verifyButton3" onClick={() => handleRedirect("/turfs")}>Book My Turf</button>
       </div>
 

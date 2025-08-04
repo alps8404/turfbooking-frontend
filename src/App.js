@@ -8,7 +8,7 @@ import TurfCards from "./TurfsCards"; // 👈 NEW IMPORT
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css';
-import RegisterPlayerForm from "./RegisterPlayerForm"
+import LoginPage from "./LoginPage"
 
 function App() {
  const [isVerified, setIsVerified] = useState(() => {
@@ -51,12 +51,12 @@ function App() {
           }
         />
         <Route
-          path="/register-player"
+          path="/player-login"
           element={
             isVerified ? (
               <>
                 <CustomNavbar />
-                <RegisterPlayerForm />
+                <LoginPage />
               </>
             ) : (
               <Navigate to="/" />
