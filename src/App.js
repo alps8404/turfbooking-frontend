@@ -4,11 +4,11 @@ import AgeVerification from "./AgeVerification";
 import MainContent from "./MainContent";
 import CustomNavbar from "./Navbar";
 import LoginPage from "./LoginPage";
+import RegisterPlayerForm from "./RegisterPlayerForm";
 import TurfCards from "./TurfsCards"; // 👈 NEW IMPORT
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css';
-import LoginPage from "./LoginPage"
 
 function App() {
  const [isVerified, setIsVerified] = useState(() => {
@@ -21,7 +21,8 @@ function App() {
       <Routes>
 
         <Route path="/" element={<AgeVerification setIsVerified={setIsVerified} />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" 
+        element={<LoginPage />} />
         <Route
           path="/main"
           element={
@@ -56,7 +57,20 @@ function App() {
             isVerified ? (
               <>
                 <CustomNavbar />
-                <LoginPage />
+                <RegisterPlayerForm />
+              </>
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+         <Route
+          path="/team-login"
+          element={
+            isVerified ? (
+              <>
+                <CustomNavbar />
+                <RegisterPlayerForm />
               </>
             ) : (
               <Navigate to="/" />

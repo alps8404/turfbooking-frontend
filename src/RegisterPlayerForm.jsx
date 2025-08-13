@@ -22,7 +22,8 @@ const RegisterPlayerForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://player-service-n0y0.onrender.com/api/players/save", player);
+      //await axios.post("https://player-service-n0y0.onrender.com/api/players/save", player);
+      await axios.post("http://localhost:8081/api/players/save", player);
       alert("Player registered successfully!");
       navigate("/main");
     } catch (err) {

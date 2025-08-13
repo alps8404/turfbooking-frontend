@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 
+
+
+
+
+
 function LoginPage() {
   const [phone, setPhone] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [enteredOtp, setEnteredOtp] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+ 
+  const role = localStorage.getItem("userRole");
+   console.log("User is",role);
+
+
 
   const correctOtp = "123456";
 
@@ -21,15 +31,31 @@ function LoginPage() {
     setOtpSent(true);
   };
 
-  const handleVerifyOtp = (e) => {
+  const handleVerifyOtp =async  (e) => {
     e.preventDefault();
     if (enteredOtp === correctOtp) {
-      setError("");
-      navigate("/main");
-    } else {
-      setError("Invalid OTP. Please try again.");
+      setError(""); 
+      try {
+      const response = await fetch(`http://localhost:8081/api/players/login?mobile=${phone}`);
+      console.log("User is",response);
+      if (response.ok) {
+        //const playerData = await response.json();
+        //localStorage.setItem("playerData", JSON.stringify(playerData)); // optional
+        navigate("/main"); // or player-dashboard
+      } else if (response.status === 404) {
+        navigate("/player-login"); // prefill
+      } else {
+        setError("Something went wrong.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Server error");
     }
-  };
+
+  } else {
+    setError("Invalid OTP. Please try again.");
+  }
+};
 
   return (
     <Container className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>

@@ -1,4 +1,4 @@
-  import React from "react";
+
   import {
     Navbar,
     Nav,
@@ -36,7 +36,7 @@
           <Navbar.Toggle aria-controls="main-navbar" />
           <Navbar.Collapse id="main-navbar">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              <Nav.Link href="#">Home</Nav.Link>
+              <Nav.Link onClick={() => navigate("/")} >Home</Nav.Link>
               <NavDropdown title="Upcoming tournaments" id="porn-videos-dropdown">
                 <NavDropdown.Item href="#">Trending</NavDropdown.Item>
                 <NavDropdown.Item href="#">New</NavDropdown.Item>

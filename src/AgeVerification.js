@@ -4,10 +4,17 @@ import { useNavigate } from "react-router-dom";
 const AgeVerification = ({ setIsVerified }) => {
   const navigate = useNavigate();
 
-  const handleRedirect = (path) => {
-    setIsVerified(true);      // ✅ set verified
-    navigate(path, { replace: true }); // ✅ Replace history so `/main` isn’t flashed
-  };
+  const handleRedirect = (role) => {
+  setIsVerified(true);
+  localStorage.setItem("userRole", role); // Store the role
+  navigate("/login");
+};
+
+  // const handleRedirect = (path) => {
+  //   setIsVerified(true);    
+  //   localStorage.setItem("userRole", role);  // ✅ set verified
+  //   navigate(path, { replace: true }); // ✅ Replace history so `/main` isn’t flashed
+  // };
 
   return (
     <div className="container">
@@ -20,8 +27,8 @@ const AgeVerification = ({ setIsVerified }) => {
       <p>This is a website for players and teams...</p>
 
       <div className="buttons">
-        <button className="verifyButton" onClick={() => handleRedirect("/search-players")}>I want a - Team</button>
-        <button className="verifyButton" onClick={() => handleRedirect("/player-login")}>I want a - Player</button>
+        <button className="verifyButton" onClick={() => handleRedirect("team")}>I want a - Team</button>
+        <button className="verifyButton" onClick={() => handleRedirect("player")}>I want a - Player</button>
         <button className="verifyButton3" onClick={() => handleRedirect("/turfs")}>Book My Turf</button>
       </div>
 
