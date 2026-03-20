@@ -9,6 +9,7 @@ import TurfCards from "./TurfsCards"; // 👈 NEW IMPORT
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css';
+import TurfDetails from "./TurfDetails";
 
 function App() {
  const [isVerified, setIsVerified] = useState(() => {
@@ -51,6 +52,8 @@ function App() {
             )
           }
         />
+
+        <Route path="/turf/:id" element={<TurfDetails />} />
         <Route
           path="/player-login"
           element={
