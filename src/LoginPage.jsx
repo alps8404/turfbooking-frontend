@@ -17,6 +17,8 @@
     const role = localStorage.getItem("userRole");
     console.log("User is", role);
 
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 
 
     const correctOtp = "123456";
@@ -36,7 +38,8 @@
       if (enteredOtp === correctOtp) {
         setError("");
         try {
-          const response = await fetch(`http://localhost:8081/api/players/login?mobile=${phone}`);
+          const response = await fetch(`${API_BASE_URL}/api/players/login?mobile=${phone}`);
+          console.log("API_BASE_URL =", API_BASE_URL);
           console.log("User is", response);
           if (response.ok) {
 
