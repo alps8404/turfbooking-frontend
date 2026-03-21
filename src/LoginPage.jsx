@@ -55,7 +55,7 @@
 
             navigate("/main");
           } else if (response.status === 404) {
-            navigate("/player-login"); // prefill
+             navigate("/player-login", { state: { mobile: phone } });
           } else {
             setError("Something went wrong.");
           }

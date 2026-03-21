@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css';
 import TurfDetails from "./TurfDetails";
+import MyBookings from "./MyBookings";
 
 function App() {
  const [isVerified, setIsVerified] = useState(() => {
@@ -54,6 +55,7 @@ function App() {
         />
 
         <Route path="/turf/:id" element={<TurfDetails />} />
+        <Route path="/my-bookings" element={<MyBookings />} />
         <Route
           path="/player-login"
           element={

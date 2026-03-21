@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const RegisterPlayerForm = () => {
   const navigate = useNavigate();
 
+  const location = useLocation();
+const prefilledMobile = location.state?.mobile || "";
+
+   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const [player, setPlayer] = useState({
     name: "",
     age: "",
-    mobile: "",
+    mobile: prefilledMobile,
     position: "",
     location: "",
     professionalism: "",
@@ -22,8 +27,8 @@ const RegisterPlayerForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     // await axios.post("https://player-service-n0y0.onrender.com/api/players/save", player);
-      await axios.post("http://localhost:8081/api/players/save", player);
+     
+     await axios.post(`${API_BASE_URL}/api/players/save`, player);
       alert("Player registered successfully!");
       navigate("/main");
     } catch (err) {
