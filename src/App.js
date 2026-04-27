@@ -69,20 +69,8 @@ function App() {
             )
           }
         />
-         <Route
-          path="/team-login"
-          element={
-            isVerified ? (
-              <>
-                <CustomNavbar />
-                <RegisterPlayerForm />
-              </>
-            ) : (
-              <Navigate to="/" />
-            )
-          }
-        />
 
+        
       </Routes>
     </Router>
   );
