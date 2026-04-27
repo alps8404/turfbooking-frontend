@@ -6,8 +6,17 @@ function TurfCards() {
   const navigate = useNavigate();
   const [turfs, setTurfs] = useState([]);
 
+   const API_BASE_URL = process.env.REACT_APP_TURF_DETAILS;
+
   useEffect(() => {
-    fetch("http://localhost:8080/turf/api/turfs")
+
+      //  const response = await fetch(`${API_BASE_URL}/api/bookings/user/${userId}`);
+      //           const data = await response.json();
+
+      //           console.log("Bookings API response:", data);
+      //           setBookings(data);
+
+    fetch(`${API_BASE_URL}/turf/api/turfs`)
       .then((res) => res.json())
       .then((data) => {
         console.log("API RESPONSE:", data);
